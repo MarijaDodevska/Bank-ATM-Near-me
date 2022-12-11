@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.bankatm</groupId>
+    <artifactId>API</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>API</name>
+    <description>API</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+        <org.projectlombok.version>1.18.20</org.projectlombok.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.6.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>5.2.8.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>2.5.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>app#company-manager</warName>
+                    <attachClasses>true</attachClasses>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${lombok-mapstruct-binding.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-locale-resources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script><![CDATA[
+                  @Grapes([
+                    @Grab(group='commons-io', module='commons-io', version='2.6')
+                  ])
+                  import org.apache.commons.io.FileUtils;
+
+                  import groovy.json.*;
+
+                  def resourcesPath = "$project.basedir/src/main/resources";
+                  def propsPath = "$resourcesPath/locale";
+
+                  def defaultLocale = "en";
+                  def locales = ["en"];
+
+                  def getLocalePropsAsMap = { Properties p, String locale ->
+
+                    def localeProps = [:];
+                    def suffix = '-' + locale;
+
+                    p.forEach {key, value ->
+                      if (key.endsWith(suffix)) {
+                        def mapKey = key[0..(-1 - suffix.length())];
+                        localeProps[mapKey] = value;
+                      }
+                    }
+
+                    return localeProps;
+                  }
+
+                  def jsonGenerator = new JsonGenerator.Options()
+                    .disableUnicodeEscaping()
+                    .build();
+
+                  def generateLocaleJson = {String ns, String outPath ->
+
+                    Properties p = new Properties();
+                    File propFile = new File("$propsPath/$ns" + ".properties");
+                    propFile.withReader('utf-8') {
+                      p.load(it)
+                    }
+
+                    def defaultProps = getLocalePropsAsMap(p, defaultLocale);
+
+                    File outDir = new File("$outPath");
+                    outDir.mkdirs();
+
+                    locales.each { locale ->
+                      def localeProps = [:];
+                      localeProps.putAll(defaultProps);
+
+                      if (!locale.equals(defaultLocale)) {
+                        localeProps.putAll(getLocalePropsAsMap(p, locale));
+                      }
+
+                      Set parentKeys = [];
+                      localeProps.each {entry -> {
+                        def key = entry.key;
+                        def lastDotIx = key.lastIndexOf('.');
+                        if (lastDotIx != -1) {
+                          parentKeys << key.substring(0, lastDotIx);
+                        }
+                      }}
+
+                      parentKeys.each {key -> {
+                        if (localeProps[key]) {
+                          def errMsg = "Text key prefix (with sub-entries), can't have a value [namespace=${ns}; key=${key}]";
+                          println errMsg;
+                          throw new Exception(errMsg);
+                        }
+                      }}
+
+
+                      Properties locP = new Properties();
+                      locP.putAll(localeProps);
+                      def propsObj = new ConfigSlurper().parse(locP);
+
+                      File outFile = new File(outDir, "$ns-$locale" + ".json");
+                      outFile.withWriter('UTF-8') { writer ->
+                        writer.write(jsonGenerator.toJson(propsObj));
+                      }
+                    }
+                  }
+
+                  generateLocaleJson('login', "$project.build.outputDirectory/locale-json-public");
+                  generateLocaleJson('company-manager', "$project.build.outputDirectory/locale-json");
+
+                ]]></script>
+                                <!--<script>file:///${project.basedir}/src/main/resources/groovyScripts/someScript.groovy</script>-->
+                            </scripts>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <type>pom</type>
+                        <!-- Version >=2.5.0 required to support unescaped UTF-8 characters in the generated JSON files -->
+                        <version>3.0.7</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
