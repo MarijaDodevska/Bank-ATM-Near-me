@@ -1,4 +1,4 @@
-![Image Alt Text](https://upload.wikimedia.org/wikipedia/mk/6/60/%D0%9B%D0%BE%D0%B3%D0%BE-%D0%A4%D0%98%D0%9D%D0%9A%D0%98.jpg))
+![Image Alt Text](https://upload.wikimedia.org/wikipedia/mk/6/60/%D0%9B%D0%BE%D0%B3%D0%BE-%D0%A4%D0%98%D0%9D%D0%9A%D0%98.jpg)
 # Project Title: Bank/ATM Near-me
 ## Course: Software Design and Architecture
 
